@@ -1,50 +1,81 @@
-class test:
-    def __init__(self):
-        self.user = []
+
+# class test:
+#     def __init__(self):
+#         self.user = []
 
 
-    def add(self, name):
-        self.user.append({ 
-            'user_id': name,
-            'chat_status': 1 
-            })
+#     def add(self, name: str):
+#         self.user.append({ 
+#             'user_id': name,
+#             'chat_status': 1 
+#             })
 
 
-    def get_status(self, id):
+#     def get_status(self, id):
 
-        for x in self.user:
-            if x['user_id'] == id:
-                status =  x['chat_status']
-                x['chat_status'] += 1
-                return status
+#         for x in self.user:
+#             if x['user_id'] == id:
+#                 status =  x['chat_status']
+#                 x['chat_status'] += 1
+#                 return status
 
-    def chamou(self, str):
+#     def chamou(self, str):
 
-        print(str)
+#         print(str)
 
-    def falar(self, id):
-        num = 10
-        switcher={
-                0:'Sunday',
-                1:'Monday',
-                2:'Tuesday',
-                3:"chamou opsção 3",
-                4:'Thursday',
-                5:'Friday',
-                6:'Saturday'
-             }
-        return switcher.get(num, "complex")
+#     def falar(self, id):
+#         num = 'Tuesday'
+#         switcher={
+#                 'Sunday': 1,
+#                 'Monday': 1,
+#                 'Tuesday': 5,
+#                 'Thursday': 1,
+#                 'Friday': 1
+#              }
+#         return switcher.get(num, "complex")
 
-teste = test()
+#     def oq(self):
+#         return ["oauhjsf","asdasdasdasdasd"]
 
-teste.add("novo")
+# teste = test()
 
-# for x in teste.user: print(x["chat_status"])
+# teste.add(1)
 
-teste.get_status("novo")
+# print(teste.user)
 
-str = teste.falar("novo")
+# teste.add("novo")
+# teste.add("velho")
+# teste.add("atual")
 
-print(str)
+# # for x in teste.user: print(x["chat_status"])
 
-# for x in teste.user: print(x["chat_status"])
+# teste.user.pop(1)
+
+# print(teste.user)
+
+# frases = teste.oq()
+
+# if frases.__class__() == []:
+#     print(frases[0])
+#     print(frases[1])
+# elif frases.__class__() == "":
+#     print(frases)
+
+var = ["oqdoknqowc",11]
+
+switcher={
+            0:'explicar oq ele faz',
+            1:'falar que nao entendeu',
+            2:'falar que nao entendeu de novo',
+            3:'desistir',
+            4:'mandar correio elegante, para quem?',
+            5:'mandar mensagem pronta, para quem?',
+            6:'nao entendi pra quem mandar',
+            7:'nao entendi pra quem mandar',
+            8:'qual a mensagem?',
+            9:'qual o tipo de mensagem pronta?',
+            10:'asdasdas'
+        }
+print(switcher.get(var,"complex"))
+
+
