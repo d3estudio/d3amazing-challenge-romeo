@@ -61,21 +61,26 @@
 # elif frases.__class__() == "":
 #     print(frases)
 
-var = ["oqdoknqowc",11]
+# var = ["oqdoknqowc",11]
 
-switcher={
-            0:'explicar oq ele faz',
-            1:'falar que nao entendeu',
-            2:'falar que nao entendeu de novo',
-            3:'desistir',
-            4:'mandar correio elegante, para quem?',
-            5:'mandar mensagem pronta, para quem?',
-            6:'nao entendi pra quem mandar',
-            7:'nao entendi pra quem mandar',
-            8:'qual a mensagem?',
-            9:'qual o tipo de mensagem pronta?',
-            10:'asdasdas'
-        }
-print(switcher.get(var,"complex"))
+# switcher={
+#             0:'explicar oq ele faz',
+#             1:'falar que nao entendeu',
+#             2:'falar que nao entendeu de novo',
+#             3:'desistir',
+#             4:'mandar correio elegante, para quem?',
+#             5:'mandar mensagem pronta, para quem?',
+#             6:'nao entendi pra quem mandar',
+#             7:'nao entendi pra quem mandar',
+#             8:'qual a mensagem?',
+#             9:'qual o tipo de mensagem pronta?',
+#             10:'asdasdas'
+#         }
+# print(switcher.get(var,"complex"))
 
+text = "test"
 
+praises = open(text +'.txt','r')
+ok = praises.read().split("\n")
+
+print(ok[0])

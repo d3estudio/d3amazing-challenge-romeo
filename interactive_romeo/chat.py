@@ -17,43 +17,40 @@ class conversation_romeo:
             else:
                 return self.complex_anser(num, text)
         else:
-            return self.hi_message()
+            return self.hi_messages()
         
-    def hi_message(self):
-        
-        n = random.randint(0,3)
-        switcher={
-            0:'mensagem de ola 1',
-            1:'mensagem de ola 2',
-            2:'mensagem de ola 3',
-            3:'mensagem de ola 4',
-        }
-        return switcher.get(n)
+    def hi_messages(self):
+
+        messages = open('./interactive_romeo/sentences/hi_messages.txt','r')
+        message = messages.read().split("\n")
+        n = random.randint(0,len(message) - 1)
+        return message[n]
 
     def basic_answer(self, num):
-        switcher={
-            0:'explicar oq ele faz pela segunda vez',
-            1:'explicar oq ele faz',
-            2:'falar que nao entendeu',
-            3:'falar que nao entendeu de novo',
-            4:'desistir',
-            5:'mandar correio elegante, para quem?',
-            6:'nao entendi pra quem mandar o correio',
-            7:'nao entendi pra quem mandar o correio vou desistir',
-            8:'mandar mensagem pronta, para quem?',
-            9:'nao entendi pra quem mandar a mensagem?',
-            10:'nao entendi pra quem mandar a mensagem vou desistir?',
-            11:'qual a mensagem?',
-            12:'qual o tipo de mensagem pronta?'
-        }
-        return switcher.get(num,"complex")
+
+        print("num: " + str(num))
+        print("type: " + str(type(num)))
+        
+        messages = open('./interactive_romeo/sentences/basic_answer.txt','r')
+        message = messages.read().split("\n")
+        return message[num]
 
     def complex_anser(self, num, text):
-        switcher={
-            13:'falar que mandou a mensagem',
-            14:'mostrar que mandou a mensagem pronta',
-        }
-        answer = switcher.get(num[0],"complex")
-        return[answer,num[1],text]
-
+ 
+        messages = open('./interactive_romeo/sentences/complex_anser.txt','r')
+        message = messages.read().split("\n")
         
+        if num[0] == 14:
+
+            answer = message[0]
+            send =  message[2] + '\n\n"' + text + '"\n\n' + message[4]
+
+        if num[0] == 15:
+
+            answer = message[1]
+            praises = open('./interactive_romeo/sentences/ready_' + '\n\n"' + text + '"\n\n' +'.txt','r')
+            praise = praises.read().split("\n")
+            n = random.randint(0,len(praise) - 1)
+            send =   message[3] + praise[n] + message[4]
+
+        return[answer,num[1],send]

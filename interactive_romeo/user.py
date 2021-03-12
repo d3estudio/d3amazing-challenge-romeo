@@ -37,9 +37,13 @@ class User_chat:
                     user['chat_status'] += 1
                     return status
 
-                if text.lower() == "voltar":
-                    user['chat_status'] == 0
-                    return status
+                elif text.lower() == "voltar":
+                    user['chat_status'] = 0
+                    return user['chat_status']
+
+                elif text.lower() == "tchau":
+                    self.users.pop(key)
+                    return 13
 
                 elif [2,3].__contains__(status):
 
@@ -68,12 +72,12 @@ class User_chat:
 
                     if recipient_id != "none":
                         if [5,6,7].__contains__(status):
-                            user['chat_status'] = 13
+                            user['chat_status'] = 14
                             user['recipient'] = recipient_id
                             return 11
 
                         if [8,9,10].__contains__(status):
-                            user['chat_status'] = 14
+                            user['chat_status'] = 15
                             user['recipient'] = recipient_id
                             return 12
 
@@ -85,13 +89,17 @@ class User_chat:
                         self.users.pop(key)
                         return 4
 
-                elif 13 == status:
-
+                elif [14,15].__contains__(status):
+                    user['chat_status'] = 0
                     return[status,user['recipient'],text]
 
-                elif 14 == status:
-                    
-                    return[status,user['recipient'],text]
+                elif user['chat_status'] == 0:
+                    status = self.final_imput(text)
+                    if status == 13:
+                        self.users.pop(key)
+                        return 13
+                    user['chat_status'] = status
+                    return status
 
     def user_imput(self, text: str, id: int):
         if text == "correio":
@@ -108,11 +116,11 @@ class User_chat:
             if re.match('^[A-Z0-9_.-]*$', recipient_id):
                 return recipient_id
         return "none"
-            
-    # def elegant_mail(self, text: str):
 
-    #     return ""
-
-    # def ready_mail(self, text: str):
-    
-    #     return ""
+    def final_imput(self, text: str):
+        if text == "sim":
+            return 0
+        if text == "nao":
+            return 13
+        else:
+            return 2
