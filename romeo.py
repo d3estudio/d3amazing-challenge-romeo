@@ -10,9 +10,9 @@ from slackeventsapi import SlackEventAdapter
 # load_dotenv(dotenv_path=env_path)
 
 app = Flask(__name__)
-slack_event_adapter = SlackEventAdapter("a361a2ec4832267372642d434eea6683", '/slack/events', app)
+slack_event_adapter = SlackEventAdapter("", '/slack/events', app)
 
-client = slack.WebClient("xoxb-1836419072837-1845216234194-KXYdo1EIJyKIi35y1IHSdU7b")
+client = slack.WebClient("")
 BOT_ID = client.api_call("auth.test")['user_id']
 
 chat = chat.conversation_romeo()
